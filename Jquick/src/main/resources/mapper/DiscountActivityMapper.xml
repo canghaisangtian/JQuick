@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.quick.dao.DiscountActivityMapper">
+  <resultMap id="BaseResultMap" type="com.quick.entity.DiscountActivity">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="VARCHAR" property="uid" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="pid" jdbcType="VARCHAR" property="pid" />
+    <result column="discount" jdbcType="VARCHAR" property="discount" />
+    <result column="integral" jdbcType="VARCHAR" property="integral" />
+    <result column="discount_integral" jdbcType="VARCHAR" property="discountIntegral" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="nstatus" jdbcType="INTEGER" property="nstatus" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="enterpriseid" jdbcType="VARCHAR" property="enterpriseid" />
+    <result column="date" jdbcType="VARCHAR" property="date" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, uid, username, pid, discount, integral, discount_integral, province, city, area, 
+    address, phone, nstatus, createtime, enterpriseid, date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from discount_activity
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from discount_activity
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.quick.entity.DiscountActivity">
+    insert into discount_activity (id, uid, username, 
+      pid, discount, integral, 
+      discount_integral, province, city, 
+      area, address, phone, 
+      nstatus, createtime, enterpriseid, 
+      date)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{pid,jdbcType=VARCHAR}, #{discount,jdbcType=VARCHAR}, #{integral,jdbcType=VARCHAR}, 
+      #{discountIntegral,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{nstatus,jdbcType=INTEGER}, #{createtime,jdbcType=TIMESTAMP}, #{enterpriseid,jdbcType=VARCHAR}, 
+      #{date,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.quick.entity.DiscountActivity">
+    insert into discount_activity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="pid != null">
+        pid,
+      </if>
+      <if test="discount != null">
+        discount,
+      </if>
+      <if test="integral != null">
+        integral,
+      </if>
+      <if test="discountIntegral != null">
+        discount_integral,
+      </if>
+      <if test="province != null">
+        province,
+      </if>
+      <if test="city != null">
+        city,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="nstatus != null">
+        nstatus,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="enterpriseid != null">
+        enterpriseid,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null">
+        #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        #{integral,jdbcType=VARCHAR},
+      </if>
+      <if test="discountIntegral != null">
+        #{discountIntegral,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="nstatus != null">
+        #{nstatus,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseid != null">
+        #{enterpriseid,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.quick.entity.DiscountActivity">
+    update discount_activity
+    <set>
+      <if test="uid != null">
+        uid = #{uid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="pid != null">
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+      <if test="discount != null">
+        discount = #{discount,jdbcType=VARCHAR},
+      </if>
+      <if test="integral != null">
+        integral = #{integral,jdbcType=VARCHAR},
+      </if>
+      <if test="discountIntegral != null">
+        discount_integral = #{discountIntegral,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null">
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="nstatus != null">
+        nstatus = #{nstatus,jdbcType=INTEGER},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enterpriseid != null">
+        enterpriseid = #{enterpriseid,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.quick.entity.DiscountActivity">
+    update discount_activity
+    set uid = #{uid,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      pid = #{pid,jdbcType=VARCHAR},
+      discount = #{discount,jdbcType=VARCHAR},
+      integral = #{integral,jdbcType=VARCHAR},
+      discount_integral = #{discountIntegral,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      nstatus = #{nstatus,jdbcType=INTEGER},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      enterpriseid = #{enterpriseid,jdbcType=VARCHAR},
+      date = #{date,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+ </mapper>
